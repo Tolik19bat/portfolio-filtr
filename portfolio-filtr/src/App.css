@@ -1,0 +1,10 @@
+.toolbar {
+  display: flex;
+  padding: 5px;
+  gap: 5px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
