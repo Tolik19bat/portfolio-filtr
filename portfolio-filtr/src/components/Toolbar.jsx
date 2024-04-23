@@ -1,24 +1,20 @@
-
+// Toolbar.jsx
 import PropTypes from 'prop-types';
-import Button from './Button.jsx';
 
-const Toolbar = ({ filters, selected, onSelectFilter }) => (
-  <div>
-    {filters.map(filter => (
-      <Button
-        key={filter}
-        filter={filter}
-        selected={selected}
-        onSelectFilter={onSelectFilter}
-      />
-    ))}
-  </div>
-);
-
-Toolbar.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selected: PropTypes.string.isRequired,
-  onSelectFilter: PropTypes.func.isRequired,
-}
+const Toolbar = ({ filters, selected, onSelectFilter }) => {
+  return (
+    <div className="toolbar">
+      {filters.map((filter) => (
+        <button
+          key={filter}
+          className={selected === filter ? 'active' : ''}
+          onClick={() => onSelectFilter(filter)}
+        >
+          {filter}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 export default Toolbar;

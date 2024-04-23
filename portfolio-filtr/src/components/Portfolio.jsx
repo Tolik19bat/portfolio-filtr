@@ -1,34 +1,45 @@
-
+import { Component } from 'react';
+import Toolbar from './Toolbar';
+import ProjectList from './ProjectList';
+import data from '../data'; // Здесь подставьте свои данные
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import Toolbar from './Toolbar.jsx';
-import ProjectList from './ProjectList.jsx';
-import data from "../data.js"
 
-const Portfolio = () => {
-  const [selected, setSelected] = useState("All");
-  const filters = ["All", "Websites", "Flayers", "Business Cards"];
-  const projects = [...data.projects];
+class Portfolio extends Component {
+  state = {
+    getAllPortfolio: data, // Загрузите данные из файла data.js
+    portfolio: data, // Изначально показываем все проекты
+    categories: ['All', 'Websites', 'Flayers', 'Business Cards'],
+    selectedCategory: 'All', // Изначально выбран фильтр "All"
+  };
 
-  const onSelectFilter = (filter) => {
-    setSelected(filter);
+  filterItems = (category) => {
+    if (category === 'All') {
+      this.setState({
+        selectedCategory: category,
+        portfolio: this.state.getAllPortfolio,
+      });
+    } else {
+      this.setState({
+        selectedCategory: category,
+        portfolio: this.state.getAllPortfolio.filter(
+          (item) => item.category === category
+        ),
+      });
+    }
+  };
+
+  render() {
+    return (
+      <div className="portfolio">
+        <Toolbar
+          filters={this.state.categories}
+          selected={this.state.selectedCategory}
+          onSelectFilter={this.filterItems}
+        />
+        <ProjectList projects={this.state.portfolio} />
+      </div>
+    );
   }
-
-  const filteredProjects = projects.filter(project => selected === "All" || project.category === selected);
-
-  return (
-    <div>
-      <Toolbar
-        filters={filters}
-        selected={selected}
-        onSelectFilter={onSelectFilter}
-      />
-      <ProjectList projects={filteredProjects} />
-    </div>
-  );
 }
 
-Portfolio.propTypes = {
-    projects: PropTypes.array.isRequired,
-}
 export default Portfolio;

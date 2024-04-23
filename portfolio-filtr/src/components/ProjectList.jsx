@@ -1,22 +1,17 @@
+// ProjectList.jsx
 import PropTypes from 'prop-types';
-import Project from './Project.jsx';
 
-const ProjectList = ({ projects }) => (
-  <div>
-    {projects.map(project => (
-      <Project key={project.id} project={project} />
-    ))}
-  </div>
-);
-
-ProjectList.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      imageUrl: PropTypes.string,
-      category: PropTypes.string,
-    })
-  ).isRequired,
-}
+const ProjectList = ({ projects }) => {
+  return (
+    <div className="project-list">
+      {projects.map((project) => (
+        <div key={project.id} className="project">
+          <img src={project.img} alt={project.name} />
+          <span>{project.category}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default ProjectList;

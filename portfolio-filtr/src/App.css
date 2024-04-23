@@ -1,10 +1,59 @@
-.toolbar {
-  display: flex;
-  padding: 5px;
-  gap: 5px;
+/* App.css */
+
+/* Общие стили для всего приложения */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
 }
 
-.list {
+/* Стили для компонента Toolbar */
+.toolbar {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.toolbar button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.toolbar button.active {
+  font-weight: bold;
+}
+
+/* Стили для компонента ProjectList */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.project {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.project img {
+  max-width: 100%;
+  height: auto;
+}
+
+.project span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
 }
