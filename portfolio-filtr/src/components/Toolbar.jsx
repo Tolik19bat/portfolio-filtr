@@ -17,4 +17,14 @@ const Toolbar = ({ filters, selected, onSelectFilter }) => {
   );
 };
 
+// Определяем PropTypes для компонента Toolbar
+Toolbar.propTypes = {
+  // filters - список фильтров (массив строк)
+  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // selected - активный фильтр (строка)
+  selected: PropTypes.string.isRequired,
+  // onSelectFilter - обработчик события выбора фильтра (функция)
+  onSelectFilter: PropTypes.func.isRequired,
+};
+
 export default Toolbar;

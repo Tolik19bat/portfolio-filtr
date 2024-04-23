@@ -1,12 +1,12 @@
 import { Component } from 'react';
 import Toolbar from './Toolbar';
 import ProjectList from './ProjectList';
-import data from '../data'; // Здесь подставьте свои данные
+import data from '../data'; 
 import PropTypes from 'prop-types';
 
 class Portfolio extends Component {
   state = {
-    getAllPortfolio: data, // Загрузите данные из файла data.js
+    getAllPortfolio: data,
     portfolio: data, // Изначально показываем все проекты
     categories: ['All', 'Websites', 'Flayers', 'Business Cards'],
     selectedCategory: 'All', // Изначально выбран фильтр "All"
@@ -41,5 +41,15 @@ class Portfolio extends Component {
     );
   }
 }
+
+// Определяем PropTypes для компонента Portfolio
+Portfolio.propTypes = {
+  // filters - список фильтров (массив строк)
+  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // selected - активный фильтр (строка)
+  selected: PropTypes.string.isRequired,
+  // onSelectFilter - обработчик события выбора фильтра (функция)
+  onSelectFilter: PropTypes.func.isRequired,
+};
 
 export default Portfolio;

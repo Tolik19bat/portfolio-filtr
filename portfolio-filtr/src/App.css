@@ -2,14 +2,15 @@
 
 /* Общие стили для всего приложения */
 body {
+  font-size: 14px;
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
 .portfolio {
-  width: 70%;
+  width: 100rem;
   margin: auto
 }
 
@@ -19,17 +20,14 @@ body {
   gap: 5px;
   justify-content: start;
   align-items: center;
-  /* background-color: #333; */
-  /* color: #601313; */
   padding: 10px;
 }
 
 .toolbar button {
-  /* background-color: transparent; */
   border: 1px solid black;
   color: #000000;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 16px;
 }
 
@@ -40,27 +38,20 @@ body {
 
 /* Стили для компонента ProjectList */
 .project-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+  display: flex; 
+  height: 180rem; 
+  flex-flow: column wrap; 
+  align-content: flex-start; 
 }
 
-.project {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
+.project-list > div {
+  margin-right: 1rem; 
+  margin-bottom: 1rem;
+  width: 31rem;
 }
 
 .project img {
-  max-width: 100%;
-  height: auto;
-}
-
-.project span {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
+  width: 100%;
+  display: flex;
+background-size: cover;
 }
