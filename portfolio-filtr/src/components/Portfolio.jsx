@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import Toolbar from './Toolbar';
 import ProjectList from './ProjectList';
-import data from '../data'; 
 import PropTypes from 'prop-types';
+import data from '../data'; 
 
 class Portfolio extends Component {
   state = {
@@ -45,11 +45,11 @@ class Portfolio extends Component {
 // Определяем PropTypes для компонента Portfolio
 Portfolio.propTypes = {
   // filters - список фильтров (массив строк)
-  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  filters: PropTypes.arrayOf(PropTypes.string),
   // selected - активный фильтр (строка)
-  selected: PropTypes.string.isRequired,
+  selected: PropTypes.string,
   // onSelectFilter - обработчик события выбора фильтра (функция)
-  onSelectFilter: PropTypes.func.isRequired,
+  onSelectFilter: PropTypes.func,
 };
 
 export default Portfolio;

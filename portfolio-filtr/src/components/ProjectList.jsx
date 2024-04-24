@@ -1,11 +1,13 @@
 // ProjectList.jsx
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const ProjectList = ({ projects }) => {
   return (
     <div className="project-list">
       {projects.map((project) => (
-        <div key={project.id} className="project">
+        <div key={uuidv4()} className="project">
           <img src={project.img} alt={project.name} />
         </div>
       ))}
@@ -18,9 +20,7 @@ ProjectList.propTypes = {
   // projects - список проектов (массив объектов)
   projects: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
       img: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
     })
   ).isRequired,
