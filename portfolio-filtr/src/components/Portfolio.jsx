@@ -10,6 +10,7 @@ class Portfolio extends Component {
     portfolio: data, // Изначально показываем все проекты
     categories: ['All', 'Websites', 'Flayers', 'Business Cards'],
     selectedCategory: 'All', // Изначально выбран фильтр "All"
+    activeFilter: 'All',
   };
 
   filterItems = (category) => {
@@ -24,6 +25,7 @@ class Portfolio extends Component {
         portfolio: this.state.getAllPortfolio.filter(
           (item) => item.category === category
         ),
+        activeFilter: category,
       });
     }
   };
@@ -36,7 +38,7 @@ class Portfolio extends Component {
           selected={this.state.selectedCategory}
           onSelectFilter={this.filterItems}
         />
-        <ProjectList projects={this.state.portfolio} />
+        <ProjectList projects={this.state.portfolio} activeFilter={this.state.activeFilter} />
       </div>
     );
   }
