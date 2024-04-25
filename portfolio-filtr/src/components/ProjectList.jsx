@@ -3,9 +3,24 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 
-const ProjectList = ({ projects }) => {
+const ProjectList = ({ projects, activeFilter }) => {
+  const getProjectListHeight = () => {
+    switch (activeFilter) {
+      case 'All':
+        return '180rem';
+      case 'Websites':
+        return '112rem';
+      case 'Flayers':
+        return '55rem';
+      case 'Business Cards':
+        return '75rem';
+      // default:
+      //   return 'auto';
+    }
+  }
+
   return (
-    <div className="project-list">
+    <div className="project-list" style={{ height: getProjectListHeight() }}>
       {projects.map((project) => (
         <div key={uuidv4()} className="project">
           <img src={project.img} alt={project.name} />
@@ -24,6 +39,7 @@ ProjectList.propTypes = {
       category: PropTypes.string.isRequired,
     })
   ).isRequired,
+  activeFilter: PropTypes.string.isRequired,
 };
 
 export default ProjectList;

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Toolbar from './Toolbar';
 import ProjectList from './ProjectList';
 import PropTypes from 'prop-types';
-import data from '../data'; 
+import data from '../data';
 
 class Portfolio extends Component {
   state = {
@@ -18,6 +18,7 @@ class Portfolio extends Component {
       this.setState({
         selectedCategory: category,
         portfolio: this.state.getAllPortfolio,
+        activeFilter: category,
       });
     } else {
       this.setState({
